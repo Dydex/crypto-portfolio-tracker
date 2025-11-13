@@ -35,7 +35,7 @@ const Home: React.FC = () => {
   // if (loading) return <p> Crypto Prices </p>;
   return (
     <>
-      <div className="h-screen flex flex-col gap-4 p-4">
+      <div className="h-[100%] flex flex-col gap-4 p-4">
         <div className="flex gap-6 h-[50%] ">
           {/* {Assets Card} */}
           <div className="w-[40%]">
@@ -45,7 +45,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* {Coins Cards} */}
-          <div className="grid grid-cols-2 w-[60%] gap-6 ">
+          <div className="grid grid-cols-2 w-[60%] gap-4 ">
             {" "}
             {Coins.map((coin) => (
               <PairsCard key={coin.id} pairs={coin} />

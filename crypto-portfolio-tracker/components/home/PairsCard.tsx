@@ -2,7 +2,7 @@ import { PairsCardProps } from "@/interfaces";
 
 const PairsCard: React.FC<{ pairs: PairsCardProps }> = ({ pairs }) => {
   return (
-    <div className="bg-white rounded-md p-2 flex flex-col text-white dark:text-black">
+    <div className="flex-1 bg-white h-[100%] rounded-md p-2 flex flex-col text-white dark:text-black justify-between">
       <div>
         <p className="text-sm font-semibold">{pairs.title}</p>
         <p className="text-sm">{pairs.name}</p>
