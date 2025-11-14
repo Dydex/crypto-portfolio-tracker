@@ -7,12 +7,16 @@ export interface PairsCardProps {
   price_change_24h: number;
 }
 
+export interface PairsCardFullProps extends PairsCardProps {
+  image: string;
+}
+
 export interface MarketCardProps {
   id: number;
   title: string;
   name: string;
   price: number;
-  percent_change_24h: number;
+  percentChange24h: number;
 }
 
 export interface AssetsCardProps {

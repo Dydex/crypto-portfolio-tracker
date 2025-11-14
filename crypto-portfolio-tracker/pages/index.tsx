@@ -1,13 +1,11 @@
 import MarketCard from "@/components/home/MarketCard";
 import { useEffect, useState } from "react";
-import { PairsCardProps } from "@/interfaces";
+import { MarketCardProps, PairsCardFullProps } from "@/interfaces";
 import axios from "axios";
-import { Coins } from "@/constants";
+import { Coins, coinIcons, Pairs, Balance } from "@/constants";
 import PairsCard from "@/components/home/PairsCard";
-import { Pairs } from "@/constants";
 import { PauseCircle } from "lucide-react";
 import AssetCard from "@/components/home/AssetsCard";
-import { Balance } from "@/constants";
 
 const Home: React.FC = () => {
   // const [coins, setCoins] = useState<PairsCardProps[]>([]);
@@ -32,6 +30,22 @@ const Home: React.FC = () => {
   //   return () => clearInterval(interval);
   // }, []);
 
+  // const [market, setMarket] = useState<MarketCardProps[]>([]);
+
+  // const fetchMarket = async () => {
+  //   try {
+  //     const res = await axios.get<MarketCardProps[]>("/api/market");
+  //     setMarket(res.data);
+  //   } catch (error) {
+  //     console.error("Error fetching market:", error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   fetchMarket();
+  //   const intervals = setInterval(fetchMarket, 60000);
+  //   return () => clearInterval(intervals);
+  // }, []);
+
   // if (loading) return <p> Crypto Prices </p>;
   return (
     <>
@@ -48,7 +62,11 @@ const Home: React.FC = () => {
           <div className="grid grid-cols-2 w-[60%] gap-4 ">
             {" "}
             {Coins.map((coin) => (
-              <PairsCard key={coin.id} pairs={coin} />
+              <PairsCard
+                key={coin.id}
+                {...coin}
+                image={coinIcons[coin.title]}
+              />
             ))}{" "}
           </div>
         </div>
@@ -58,17 +76,25 @@ const Home: React.FC = () => {
           <div className="w-[70%] bg-white rounded-md"></div>
 
           {/* {Market Pairs} */}
-          <div className="bg-white w-[29%] rounded-md p-4 ">
+          <div className="bg-white w-[29%] rounded-md p-2 ">
             <div className="h-[100%] w-full flex flex-col gap-4 ">
               <div className="flex justify-between text-black h-[10%] w-full">
                 <div>
                   <p className="font-semibold">Markets</p>
                 </div>
 
-                <div className="flex gap-2 text-sm">
-                  <button>All</button>
-                  <button>Meta</button>
-                  <button>Gaming</button>
+                <div className="flex gap-6 text-sm">
+                  <div className="px-2 py-1 rounded-md bg-gray-200 flex items-center ">
+                    <p>All</p>
+                  </div>
+                  <div className="px-2 py-1 rounded-md bg-gray-200 flex items-center ">
+                    {" "}
+                    <p>Meta</p>
+                  </div>
+
+                  <div className="px-2 py-1 rounded-md bg-gray-200 flex items-center ">
+                    <p>Gaming</p>
+                  </div>
                 </div>
               </div>
 

@@ -4,7 +4,7 @@ export const Coins: PairsCardProps[] = [
   {
     id: 1,
     name: "bitcoin",
-    title: "BTN",
+    title: "BTC",
     price: 234654,
     percent_change_24h: 4.5,
     price_change_24h: 234,
@@ -28,7 +28,7 @@ export const Coins: PairsCardProps[] = [
   {
     id: 4,
     name: "aptos",
-    title: "APTOS",
+    title: "APT",
     price: 666636,
     percent_change_24h: 4.5,
     price_change_24h: 234,
@@ -41,56 +41,49 @@ export const Pairs: MarketCardProps[] = [
     name: "bitcoin",
     title: "BTN",
     price: 234654,
-    percent_change_24h: 4.3,
+    percentChange24h: 4.3,
   },
   {
     id: 2,
     name: "etherum",
     title: "ETH",
     price: 68666,
-    percent_change_24h: 4.4,
+    percentChange24h: 4.4,
   },
   {
     id: 3,
     name: "solana",
     title: "SOL",
     price: 668666,
-    percent_change_24h: 4.6,
+    percentChange24h: 4.6,
   },
   {
     id: 4,
     name: "aptos",
     title: "APTOS",
     price: 660666,
-    percent_change_24h: 4.8,
+    percentChange24h: 4.8,
   },
   {
     id: 5,
     name: "Pi",
     title: "Pi",
     price: 630666,
-    percent_change_24h: 4.8,
+    percentChange24h: 4.8,
   },
   {
     id: 6,
     name: "bitcoin",
     title: "BTN",
     price: 234654,
-    percent_change_24h: 4.3,
+    percentChange24h: 4.3,
   },
   {
     id: 7,
     name: "etherum",
     title: "ETH",
     price: 68666,
-    percent_change_24h: 4.4,
-  },
-  {
-    id: 8,
-    name: "solana",
-    title: "SOL",
-    price: 668666,
-    percent_change_24h: 4.6,
+    percentChange24h: 4.4,
   },
 ];
 
@@ -102,3 +95,10 @@ export const Balance: AssetsCardProps[] = [
     amount_change_24h: 1500,
   },
 ];
+
+export const coinIcons: Record<string, string> = {
+  BTC: "/images/BTC.png",
+  ETH: "/images/ETH.png",
+  SOL: "/images/SOL.png",
+  APT: "/images/APT.png",
+};
