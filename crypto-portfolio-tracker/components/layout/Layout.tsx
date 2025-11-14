@@ -17,11 +17,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <>
       <div className="flex min-h-screen">
         <div
-          className={`bg-gray-900 text-white transition-all duration-300  ${
+          className={`bg-white text-gray-900 transition-all duration-300 flex flex-col gap-10 pr-4 pl-4 ${
             IsOpen ? "w-64" : "w-14"
           }`}
         >
-          <div className="flex justify-between p-4 ">
+          <div className="flex justify-between p-2 border-b border-gray-300 ">
             <h1 className={`font-bold text-lg ${!IsOpen && "hidden"}`}>FinX</h1>
             <button
               className="cursor-pointer"
@@ -30,31 +30,39 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               {IsOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
-          <nav>
+          <nav className="flex flex-col gap-4 pl-4 pr-4">
             <Link
               href="/"
-              className={`block flex gap-2 px-4 py-2 ${!IsOpen && "hidden"} `}
+              className={`flex px-1 py-3 rounded-md hover:bg-blue-500  transition  block flex gap-2 px-4 py-2 font-semibold  ${
+                !IsOpen && "hidden"
+              } `}
             >
               <Home size={24} />
-              Home
+              <p className="hover:text-blue">Home </p>
             </Link>
             <Link
               href="/porfolio"
-              className={`block  flex gap-2 px-4 py-2 ${!IsOpen && "hidden"}`}
+              className={`flex px-1 py-3 rounded-md hover:bg-blue-500 hover:text-blue transition block  flex gap-2 px-4 py-2 font-semibold  ${
+                !IsOpen && "hidden"
+              }`}
             >
               <PieChart size={24} />
               Porfolio
             </Link>
             <Link
               href="transaction"
-              className={`block flex gap-2 px-4 py-2 ${!IsOpen && "hidden"}`}
+              className={`flex px-1 py-3 rounded-md hover:bg-blue-500 hover:text-blue transition  block flex gap-2 px-4 py-2 font-semibold  ${
+                !IsOpen && "hidden"
+              }`}
             >
               <ArrowLeftRight size={24} />
               Transactions
             </Link>
             <Link
               href="wallet"
-              className={`block  flex gap-2 px-4 py-2 ${!IsOpen && "hidden"}`}
+              className={`flex px-1 py-3 rounded-md hover:bg-blue-500 hover:text-blue transition  block  flex gap-2 px-4 py-2 font-semibold  ${
+                !IsOpen && "hidden"
+              }`}
             >
               <Wallet size={24} />
               Wallet

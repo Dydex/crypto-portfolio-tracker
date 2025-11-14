@@ -8,48 +8,44 @@ import { PauseCircle } from "lucide-react";
 import AssetCard from "@/components/home/AssetsCard";
 
 const Home: React.FC = () => {
-  // const [coins, setCoins] = useState<PairsCardProps[]>([]);
-  // const [loading, setLaoding] = useState(true);
+  const [coins, setCoins] = useState<PairsCardFullProps[]>([]);
+  const [loading, setLaoding] = useState(true);
 
-  // const fetchCoins = async () => {
-  //   try {
-  //     const res = await axios.get<PairsCardProps[]>(
-  //       "/api/coins?symbols=BTC,ETH,SOL"
-  //     );
-  //     setCoins(res.data);
-  //   } catch (error) {
-  //     console.error("Error fetching quotes:", error);
-  //   } finally {
-  //     setLaoding(false);
-  //   }
-  // };
+  const fetchCoins = async () => {
+    try {
+      const res = await axios.get<PairsCardFullProps[]>(
+        "/api/coins?symbols=BTC,ETH,SOL,APT"
+      );
+      setCoins(res.data);
+    } catch (error) {
+      console.error("Error fetching quotes:", error);
+    } finally {
+      setLaoding(false);
+    }
+  };
 
-  // useEffect(() => {
-  //   fetchCoins();
-  //   const interval = setInterval(fetchCoins, 60000);
-  //   return () => clearInterval(interval);
-  // }, []);
+  useEffect(() => {
+    fetchCoins();
+    fetchMarket();
+    const interval = setInterval(fetchCoins, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
-  // const [market, setMarket] = useState<MarketCardProps[]>([]);
+  const [market, setMarket] = useState<MarketCardProps[]>([]);
 
-  // const fetchMarket = async () => {
-  //   try {
-  //     const res = await axios.get<MarketCardProps[]>("/api/market");
-  //     setMarket(res.data);
-  //   } catch (error) {
-  //     console.error("Error fetching market:", error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   fetchMarket();
-  //   const intervals = setInterval(fetchMarket, 60000);
-  //   return () => clearInterval(intervals);
-  // }, []);
+  const fetchMarket = async () => {
+    try {
+      const res = await axios.get<MarketCardProps[]>("/api/market");
+      setMarket(res.data);
+    } catch (error) {
+      console.error("Error fetching market:", error);
+    }
+  };
 
-  // if (loading) return <p> Crypto Prices </p>;
+  if (loading) return <p> Crypto Prices </p>;
   return (
     <>
-      <div className="h-[100%] flex flex-col gap-4 p-4">
+      <div className="h-[100%] flex flex-col gap-4 pt-4 pb-4 pl-6 pr-6">
         <div className="flex gap-6 h-[50%] ">
           {/* {Assets Card} */}
           <div className="w-[40%]">
@@ -61,7 +57,7 @@ const Home: React.FC = () => {
           {/* {Coins Cards} */}
           <div className="grid grid-cols-2 w-[60%] gap-4 ">
             {" "}
-            {Coins.map((coin) => (
+            {coins.map((coin) => (
               <PairsCard
                 key={coin.id}
                 {...coin}
@@ -99,7 +95,7 @@ const Home: React.FC = () => {
               </div>
 
               <div className="flex flex-col justify-between h-[90%] w-[100%] ">
-                {Pairs.map((pair) => (
+                {market.map((pair) => (
                   <MarketCard key={pair.id} market={pair} />
                 ))}
               </div>

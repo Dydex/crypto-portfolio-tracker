@@ -7,7 +7,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   try {
-    const { symbols = "BTC,ETH,SOL" } = req.query;
+    const { symbols = "BTC,ETH,SOL,APT" } = req.query;
 
     const response = await axios.get(
       "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest",
@@ -27,8 +27,8 @@ export default async function handler(
         id: coin.id,
         name: coin.name,
         title: coin.symbol,
-        price: coin.quote.USD.price,
-        percent_change_24h: coin.quote.USD.percent_change_24h,
+        price: coin.quote.USD.price.toFixed(2),
+        percent_change_24h: coin.quote.USD.percent_change_24h.toFixed(2),
 
         price_change_24h:
           (coin.quote.USD.price * coin.quote.USD.percent_change_24h) / 100,

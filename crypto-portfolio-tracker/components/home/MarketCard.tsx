@@ -8,7 +8,7 @@ const MarketCard: React.FC<{ market: MarketCardProps }> = ({ market }) => {
           <p className="text-sm text-black font-semibold">{market.title}</p>
         </div>
         <div className="w-[25%]">
-          <p className="text-sm text-black font-medium"> {market.name} </p>
+          <p className="text-sm text-gray-500 font-medium"> {market.name} </p>
         </div>
         <div className="w-[25%]">
           <p className="text-sm text-black font-medium">
@@ -21,7 +21,7 @@ const MarketCard: React.FC<{ market: MarketCardProps }> = ({ market }) => {
           }`}
         >
           <p
-            className={`w-[25%] text-sm font-medium ${
+            className={`w-[25%] text-sm font-semibold ${
               market.percentChange24h > 0 ? "text-green-500 " : "text-red-500 "
             } `}
           >

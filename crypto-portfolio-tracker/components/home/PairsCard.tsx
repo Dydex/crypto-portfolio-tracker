@@ -10,7 +10,7 @@ const PairsCard: React.FC<PairsCardFullProps> = ({ image, ...pairs }) => {
         </div>
         <div>
           <p className="text-sm font-semibold">{pairs.title}</p>
-          <p className="text-sm">{pairs.name}</p>
+          <p className="text-sm text-gray-500">{pairs.name}</p>
         </div>
       </div>
 
@@ -21,13 +21,13 @@ const PairsCard: React.FC<PairsCardFullProps> = ({ image, ...pairs }) => {
       </div>
 
       <div className="flex justify-between text-sm">
-        <p className="">PNL Daily</p>
+        <p className="text-gray-500">PNL Daily</p>
         <p
-          className={
+          className={`font-semibold ${
             pairs.price_change_24h > 0 ? "text-green-500" : "text-red-500"
-          }
+          }`}
         >
-          ${pairs.price_change_24h}
+          ${pairs.price_change_24h.toFixed(2)}
         </p>
         <div
           className={`px-2 py-0.1 rounded-xl ${
@@ -36,9 +36,9 @@ const PairsCard: React.FC<PairsCardFullProps> = ({ image, ...pairs }) => {
         >
           {" "}
           <p
-            className={
+            className={`font-semibold ${
               pairs.price_change_24h > 0 ? "text-green-500" : "text-red-500"
-            }
+            }`}
           >
             {pairs.percent_change_24h}%
           </p>
